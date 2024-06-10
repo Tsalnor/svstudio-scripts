@@ -22,7 +22,7 @@ This script adjusts the Pitch Deviation based the nearest note of EDO.
 
 By default, the EDO is tuned on A, with A4 being tuned in the Voice settings.
 
-This is intended to be used first, before the other scripts. This will do nothing if any of these scripts have already been run. If you need to run this script again, you can delete either of the points at the end.
+This is intended to be used first, before the other scripts. This will do nothing if any of these scripts have already been run. If you need to run this script again, you can delete either of the points at the end of the notes.
 
 ### Microtonal - Next EDO Note
 
