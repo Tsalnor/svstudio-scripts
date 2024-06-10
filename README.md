@@ -6,7 +6,7 @@ Scripts for Synthesizer V Studio Pro.
 
 I recommend binding these to shortcuts to make the process significantly faster.
 
-By default, the EDO note scripts use 31 EDO. You can change the EDO in the script to whatever you prefer.
+By default, the EDO note scripts use 31-EDO. You can change the EDO in the script to whatever you prefer.
 
 Existing Pitch Deviation points will be kept and adjusted by the cent difference.
 
