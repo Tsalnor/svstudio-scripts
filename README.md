@@ -1,6 +1,6 @@
 # svstudio-scripts
  
-Some scripts for Synthesizer V Studio Pro.
+Scripts for Synthesizer V Studio Pro.
 
 ## Microtonal
 
