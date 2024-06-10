@@ -5,9 +5,13 @@ Scripts for Synthesizer V Studio Pro.
 ## Microtonal
 
 I recommend binding these to shortcuts to make the process significantly faster.
+
 By default, the EDO note scripts use 31 EDO. You can change the EDO in the script to whatever you prefer.
+
 Existing Pitch Deviation points will be kept and adjusted by the cent difference.
+
 The Pitch Deviation is not smoothed out and has sudden jumps. If the Pitch Deviation is too large, this can be noticeable.
+
 These scripts cannot tell if you use Note Detuning, so avoid using those if you plan on using these scripts.
 
 ### Microtonal - Nearest EDO Note
