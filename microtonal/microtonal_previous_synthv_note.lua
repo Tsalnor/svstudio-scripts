@@ -14,7 +14,7 @@ function main()
     SV:finish()
 end
 
--- Get an array of blick ranges for connected notes in the selection
+-- Get an array of blicks for notes in the selection.
 function get_notes()
     local selectedNotes = SV:getMainEditor():getSelection():getSelectedNotes()
     if #selectedNotes == 0 then
