@@ -6,7 +6,7 @@ Scripts for Synthesizer V Studio Pro.
 
 There were no SynthV scripts I could find that allowed for microtonal composition. So I whipped these up with zero prior knowledge of Lua or Javascript. Don't expect me to do magic here.
 
-I recommend binding these to shortcuts to make the process significantly faster.
+I recommend binding these to shortcuts to make the process significantly faster. I also recommend merging notes into groups before applying these scripts, as parameters will follow groups as they move around.
 
 By default, the EDO note scripts use 31-EDO. You can change the EDO in the script to whatever you prefer.
 
