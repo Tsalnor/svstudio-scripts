@@ -39,19 +39,19 @@ end
 
 -- Get an array of blicks for notes in the selection.
 function get_notes()
-    local selectedNotes = SV:getMainEditor():getSelection():getSelectedNotes()
-    if #selectedNotes == 0 then
+    local selected_notes = SV:getMainEditor():getSelection():getSelectedNotes()
+    if #selected_notes == 0 then
         return {}
     end
-    table.sort(selectedNotes, function(noteA, noteB)
+    table.sort(selected_notes, function(noteA, noteB)
         return noteA:getOnset() < noteB:getOnset()
     end)
     
     local notes = {}
-    for i = 1, #selectedNotes do
-        local pitch = selectedNotes[i]:getPitch()
-        local start_position = selectedNotes[i]:getOnset()
-        local end_position = selectedNotes[i]:getEnd()
+    for i = 1, #selected_notes do
+        local pitch = selected_notes[i]:getPitch() + SV:getMainEditor():getCurrentGroup():getPitchOffset()
+        local start_position = selected_notes[i]:getOnset()
+        local end_position = selected_notes[i]:getEnd()
         notes[#notes + 1] = {pitch, start_position, end_position}
     end
     return notes
