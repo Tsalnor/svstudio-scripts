@@ -4,7 +4,7 @@ Scripts for Synthesizer V Studio Pro.
 
 ## Microtonal
 
-These are scripts intended to aid in microtonal compositions using SynthV. As these are designed to be used quickly and with little overhead, there are multiple scripts, each serving one purpose.
+These are scripts intended to aid in composing microtonal works using SynthV. As these are designed to be used quickly and with little overhead, there are multiple scripts, each serving one purpose.
 
 I recommend binding these to shortcuts to make the workflow significantly faster. I also recommend merging notes into groups before applying these scripts, as parameters will follow groups as they move around.
 
