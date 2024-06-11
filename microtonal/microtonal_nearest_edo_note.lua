@@ -50,11 +50,10 @@ function get_notes()
     
     local notes = {}
     for i = 1, #selected_notes do
-        local pitch = selected_notes[i]:getPitch() + SV:getMainEditor():getCurrentGroup():getPitchOffset()
-        SV:showMessageBox("Filled Form",tostring(pitch))
         local start_position = selected_notes[i]:getOnset()
         local end_position = selected_notes[i]:getEnd()
-        notes[#notes + 1] = {pitch, start_position, end_position}
+        local pitch = selected_notes[i]:getPitch() + SV:getMainEditor():getCurrentGroup():getPitchOffset()
+        notes[#notes + 1] = {start_position, end_position, pitch}
     end
     return notes
 end
@@ -66,30 +65,30 @@ function add_nearest_edo_pitch_deviation()
     local pitch_deviation = SV:getMainEditor():getCurrentGroup():getTarget():getParameter("Pitch Deviation")
     local pitch_deviation_copy = SV:create("Automation", "Pitch Deviation")
     for i, r in ipairs(notes) do
-        local points = pitch_deviation:getPoints(r[2], r[3])
+        local points = pitch_deviation:getPoints(r[1], r[2])
         for _, p in ipairs(points) do
             pitch_deviation_copy:add(p[1], p[2])
         end
     end
     for i, r in ipairs(notes) do
-        local cent_difference = get_nearest_edo_cent_difference(EDO_CONST, r[1])
-        local points = pitch_deviation_copy:getPoints(r[2] + step, r[3] - step)
+        local cent_difference = get_nearest_edo_cent_difference(EDO_CONST, r[3])
+        local points = pitch_deviation_copy:getPoints(r[1] + step, r[2] - step)
         if not points[1] then 
-            pitch_deviation:remove(r[2],r[3])
+            pitch_deviation:remove(r[1],r[2])
+            pitch_deviation:add(r[1], 0)
             pitch_deviation:add(r[2], 0)
-            pitch_deviation:add(r[3], 0)
-            pitch_deviation:add(r[2] + step, cent_difference)
-            pitch_deviation:add(r[3] - step, cent_difference)
-        elseif points[1][1] == r[2] + step and points[#points][1] == r[3] - step then
+            pitch_deviation:add(r[1] + step, cent_difference)
+            pitch_deviation:add(r[2] - step, cent_difference)
+        elseif points[1][1] == r[1] + step and points[#points][1] == r[2] - step then
         else
-            pitch_deviation:remove(r[2],r[3])
+            pitch_deviation:remove(r[1],r[2])
+            pitch_deviation:add(r[1], 0)
             pitch_deviation:add(r[2], 0)
-            pitch_deviation:add(r[3], 0)
             for _, p in ipairs(points) do
                 pitch_deviation:add(p[1], p[2] + cent_difference)
             end
-            pitch_deviation:add(r[2] + step, cent_difference)
-            pitch_deviation:add(r[3] - step, cent_difference)
+            pitch_deviation:add(r[1] + step, cent_difference)
+            pitch_deviation:add(r[2] - step, cent_difference)
         end
     end
 end
